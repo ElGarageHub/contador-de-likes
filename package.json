@@ -1,0 +1,22 @@
+{
+  "name": "contador-de-likes",
+  "version": "1.0.0",
+  "description": "Device that displays the number of likes of a Facebook page",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElGarageHub/contador-de-likes.git"
+  },
+  "author": "Javier Rizzo-Aguirre",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/ElGarageHub/contador-de-likes/issues"
+  },
+  "homepage": "https://github.com/ElGarageHub/contador-de-likes#readme",
+  "dependencies": {
+    "fb": "^2.0.0"
+  }
+}
