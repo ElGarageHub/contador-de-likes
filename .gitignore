@@ -1,2 +1,3 @@
-node_modules/
-config.json
+server/node_modules/
+server/config.json
+client/webhook.json

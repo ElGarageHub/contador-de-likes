@@ -1,0 +1,7 @@
+{
+  "eventName": "fb-likes",
+  "event": "fbLikesEvent",
+  "url": "",
+  "requestType": "GET",
+  "mydevices": true
+}
