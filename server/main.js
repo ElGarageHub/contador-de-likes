@@ -18,19 +18,36 @@
 'use strict';
 
 const fs = require('fs');
+const express = require('express');
+const app = express();
 let config = null;
 let FB = require('fb');
 
 fs.readFile('config.json', 'utf8', (err, data) => {
   if(err) throw err;
   config = JSON.parse(data);
+  app.listen(config.port, () => console.log('Listening on port ' + config.port));
   FB.setAccessToken(config.accessToken);
+});
+
+function getFBData() {
   FB.api(config.pageId + '?fields=id,name,fan_count,link', function(res) {
     if(!res || res.error) {
       console.log('Error: ' + res.error);
-      return;
+      return {"error": res.error};
     }
     console.log(res);
+    return res;
+  });
+}
+
+app.get('/', (req, res) => {
+  console.log('Data requested');
+  FB.api(config.pageId + '?fields=id,name,fan_count,link', function(fbRes) {
+    if(!res || res.error) {
+      console.log('Error: ' + fbRes.error);
+    }
+    console.log(fbRes);
+    res.send(JSON.stringify(fbRes));
   });
 });
-

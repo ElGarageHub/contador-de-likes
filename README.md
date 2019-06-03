@@ -4,7 +4,9 @@ Device that displays the number of likes of a Facebook page.
 
 ## Dependencies
 
-Just run
+### Server
+
+Go to the `server/` direcotry and do
 
 ```
 npm install
@@ -12,16 +14,30 @@ npm install
 
 to install all dependencies.
 
+### Client
+
+* [particle-cli](https://docs.particle.io/tutorials/developer-tools/cli/#installing).
+
 ## Configuring
 
+### Server
+
 1. Copy `config.example.json` to `config.json`.
-2. Edit `config.json` so that it has your page access token and the id of the
-page.
+2. Edit `config.json` so that it has your page access token, the id of the
+page, and the port number it is going to run on.
 
 ## Running
 
+### Server
+
 ```
-node main.js
+node server/main.js
+```
+
+or install forever and run
+
+```
+forever server/main.js
 ```
 
 ## License
