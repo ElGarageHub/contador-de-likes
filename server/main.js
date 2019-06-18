@@ -46,8 +46,9 @@ app.get('/', (req, res) => {
   FB.api(config.pageId + '?fields=id,name,fan_count,link', function(fbRes) {
     if(!res || res.error) {
       console.log('Error: ' + fbRes.error);
+    } else {
+      res.send(fbRes.fan_count + "");
     }
     console.log(fbRes);
-    res.send(JSON.stringify(fbRes));
   });
 });
