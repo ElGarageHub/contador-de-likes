@@ -18,6 +18,19 @@ to install all dependencies.
 
 * [particle-cli](https://docs.particle.io/tutorials/developer-tools/cli/#installing).
 
+### Harware
+
+The box is made of laser-cut 1/8 inch wood. The SVG file can be found in
+`hardware/box.svg`. And the modifiable OpenSCAD file can be found in
+`hardware/box.scad`.
+
+The following is the list of electronic materials:
+
+* 1 x [Particle Photon](https://store.particle.io/collections/wifi)
+* 2 x [Adafruit 1.2" 4-Digit 7-Segment Display w/I2C Backpack](https://www.adafruit.com/product/1270)
+* 1 x Micro USB cable
+* Jumper cables
+
 ## Configuring
 
 ### Server
@@ -25,6 +38,13 @@ to install all dependencies.
 1. Copy `config.example.json` to `config.json`.
 2. Edit `config.json` so that it has your page access token, the id of the
 page, and the port number it is going to run on.
+
+### Client
+
+1. Copy `webhook.example.json` to `webhook.json`.
+2. Edit `webhook.json` so that it has the URL to the server under the `url`
+property.
+3. Run `particle webhook create webhook.json` to create the webhook.
 
 ## Running
 
@@ -34,10 +54,24 @@ page, and the port number it is going to run on.
 node server/main.js
 ```
 
-or install forever and run
+or install [forever](https://www.npmjs.com/package/forever) and run
 
 ```
 forever server/main.js
+```
+
+### Client
+
+Go to the `client/` directory and compile with
+
+```
+particle compile photon
+```
+
+That will generate a firmware file. Then install that file to the Photon with
+
+```
+particle flash [PHOTON_NAME] [GENERATED_FIRMWARE_FILE.bin]
 ```
 
 ## License
