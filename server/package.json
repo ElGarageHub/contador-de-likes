@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/ElGarageHub/contador-de-likes#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "fb": "^2.0.0"
   }
 }
